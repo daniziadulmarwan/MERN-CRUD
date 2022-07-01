@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, {useState,useEffect} from 'react'
+import { useDispatch } from 'react-redux'
 import {Link} from 'react-router-dom'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
@@ -9,6 +10,7 @@ const UserList = () => {
   const[users, setUsers] = useState([])
   
   const MySwal = withReactContent(Swal)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     getAllUser()
@@ -18,6 +20,7 @@ const UserList = () => {
     const response = await axios.get(`${BASEURL}/user`);
     const datas = response.data;
     setUsers(datas.data)
+    dispatch({type:'UPDATE_USER', payload: datas.data})
   }
 
   const deleteData = async (id) => {
