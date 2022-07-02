@@ -1,30 +1,38 @@
 import axios from 'axios'
 import React,{useState,useEffect} from 'react'
+import { useDispatch } from 'react-redux'
 import {useParams, useNavigate} from 'react-router-dom'
 
 function Edit() {
   const BASEURL = 'http://localhost:5000/api'
+
   const[name,setName] = useState("")
   const[email,setEmail] = useState("")
   const[gender,setGender] = useState("")
 
   const params = useParams()
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
-  useState(async() => {
+  const getDataById = async () => {
     const data = await axios.get(`${BASEURL}/user/${params.id}`);
     const res = data.data;
     setName(res.data.name)
     setEmail(res.data.email)
     setGender(res.data.gender)
-  },[])
+  }
+
+  useEffect(() =>  {
+    getDataById()
+  }, [])
 
   const handleUpdate = async () => {
     try {
       await axios.put(`${BASEURL}/user/${params.id}`, {
       name, email, gender
       });
-      navigate('/')
+      dispatch({type:"ALERT", payload:"Berhasil update data"})
+      navigate('/user')
     } catch (error) {
       console.log(error)
     }

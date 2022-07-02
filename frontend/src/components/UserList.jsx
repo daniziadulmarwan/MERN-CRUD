@@ -1,16 +1,17 @@
 import axios from 'axios'
 import React, {useState,useEffect} from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import {Link} from 'react-router-dom'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
 const UserList = () => {
   const BASEURL = 'http://localhost:5000/api'
-  const[users, setUsers] = useState([])
-  
+
   const MySwal = withReactContent(Swal)
+
   const dispatch = useDispatch()
+  const {UserReducer} = useSelector(state => state)
 
   useEffect(() => {
     getAllUser()
@@ -19,7 +20,6 @@ const UserList = () => {
   const getAllUser = async () => {
     const response = await axios.get(`${BASEURL}/user`);
     const datas = response.data;
-    setUsers(datas.data)
     dispatch({type:'UPDATE_USER', payload: datas.data})
   }
 
@@ -63,7 +63,7 @@ const UserList = () => {
       </thead>
       <tbody>
         {
-          users.map((user, index) => {
+          UserReducer.users.map((user, index) => {
             return (
               <tr key={user.id}>
                 <th scope="row">{index + 1}</th>

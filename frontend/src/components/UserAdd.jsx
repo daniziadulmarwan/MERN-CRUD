@@ -1,10 +1,13 @@
 import axios from 'axios'
 import React,{useState} from 'react'
+import { useDispatch } from 'react-redux'
 import {Link, useNavigate} from 'react-router-dom'
 
 function UserAdd() {
   const navigate = useNavigate()
   const BASEURL = 'http://localhost:5000/api'
+
+  const dispatch = useDispatch()
 
   const[name,setName] = useState("")
   const[email,setEmail] = useState("")
@@ -24,6 +27,7 @@ function UserAdd() {
         name,email,gender
       })
       clearForm()
+      dispatch({type:"ALERT", payload:"Berhasil create data"})
       navigate('/user')
     } catch (error) {
       setValidate(error.response.data.error)

@@ -1,26 +1,33 @@
-import { legacy_createStore as createStore} from 'redux'
+import { legacy_createStore as createStore, combineReducers} from 'redux'
 
-const initialState = {
-  teachers: [],
-  name: 'Fayha ZM',
+const initialStateHome = {
+  name:"",
+  alert: ""
+}
+
+const HomeReducer = (state = initialStateHome, action) => {
+  if(action.type === "UPDATE_NAME") {
+    return {
+      ...state,
+      name: "ZEITEIM TECH"
+    }
+  }
+
+  if(action.type === 'ALERT') {
+    return {
+      ...state,
+      alert: action.payload
+    }
+  }
+
+  return state
+}
+
+const initialStateUser = {
   users: [],
 }
 
-const reducer = (state = initialState, action) => {
-  if(action.type === 'UPDATE_DATA_TEACHER') {
-    return {
-      ...state,
-      teachers: action.payload
-    }
-  }
-
-  if(action.type === 'UPDATE_NAME') {
-    return {
-      ...state,
-      name: 'Dani ZM'
-    }
-  }
-
+const UserReducer = (state = initialStateUser, action) => {
   if(action.type === 'UPDATE_USER') {
     return {
       ...state,
@@ -30,6 +37,8 @@ const reducer = (state = initialState, action) => {
 
   return state
 }
+
+const reducer = combineReducers({HomeReducer,UserReducer})
 
 const store = createStore(reducer)
 
