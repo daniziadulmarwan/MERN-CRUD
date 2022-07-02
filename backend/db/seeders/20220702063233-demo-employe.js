@@ -3,9 +3,9 @@ const { faker } = require("@faker-js/faker");
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    for (let i = 0; i < 100000; i++) {
+    for (let i = 0; i < 300; i++) {
       await queryInterface.bulkInsert(
-        "Teachers",
+        "Employes",
         [
           {
             name: faker.name.findName(),
@@ -21,6 +21,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete("Teachers", null, {});
+    await queryInterface.bulkDelete("Employes", null, {});
   },
 };
