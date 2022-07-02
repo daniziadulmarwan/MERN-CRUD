@@ -4,6 +4,7 @@ const fileupload = require("express-fileupload");
 
 const app = express();
 
+const AuthRouter = require("./router/auth.router");
 const UserRouter = require("./router/user.router");
 const StudentRouter = require("./router/student.router");
 const TeacherRouter = require("./router/teacher.router");
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use(fileupload());
 app.use(express.static("public"));
 
+app.use("/api", AuthRouter);
 app.use("/api", UserRouter);
 app.use("/api", StudentRouter);
 app.use("/api", TeacherRouter);

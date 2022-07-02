@@ -3,7 +3,7 @@ const { faker } = require("@faker-js/faker");
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    for (let i = 0; i < 100000; i++) {
+    for (let i = 0; i < 200; i++) {
       await queryInterface.bulkInsert(
         "Teachers",
         [
