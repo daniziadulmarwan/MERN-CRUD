@@ -9,6 +9,7 @@ import Create from './pages/user/Create'
 import Edit from './pages/user/Edit'
 import User from './pages/user/User'
 import store from './redux/store'
+import Employe from './pages/employe/Employe'
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
         <Route path='/student/edit/:id' element={<StudentEdit />} />
 
         <Route path='/teacher' element={<Teacher />} />
+
+        <Route path='/employe' element={<Employe />} />
       </Routes>
     </Provider>
   )

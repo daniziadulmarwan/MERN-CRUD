@@ -14,7 +14,7 @@ function Home() {
 
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <div className="container mt-3">
         <h6>CRUD MERN Fullstack App</h6>
         <span>Created by <a href="https://daniziadulmarwan.github.io" target={'_blank'}>{HomeReducer.name}</a></span>
