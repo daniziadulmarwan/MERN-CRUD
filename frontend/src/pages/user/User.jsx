@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import {Link} from 'react-router-dom'
 import UserList from '../../components/UserList'
-import Navbar from '../../elements/Navbar'
+import AuthNavbar from '../../elements/AuthNavbar'
 
 function User() {
 
@@ -10,7 +10,7 @@ function User() {
 
   return (
     <>
-      <Navbar/>
+      <AuthNavbar />
       <div className='container mt-5'>
         <div className="row justify-content-center">
           <div className="col-md-10 mt-5">
