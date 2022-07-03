@@ -10,6 +10,9 @@ import Edit from './pages/user/Edit'
 import User from './pages/user/User'
 import store from './redux/store'
 import Employe from './pages/employe/Employe'
+import Login from './pages/auth/Login'
+import Register from './pages/auth/Register'
+import Dashboard from './pages/dashboard/Dashboard'
 
 function App() {
   return (
@@ -28,6 +31,11 @@ function App() {
         <Route path='/teacher' element={<Teacher />} />
 
         <Route path='/employe' element={<Employe />} />
+
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+
+        <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
     </Provider>
   )

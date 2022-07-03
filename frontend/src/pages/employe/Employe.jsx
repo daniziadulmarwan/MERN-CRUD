@@ -66,7 +66,7 @@ function Employe() {
                     <tr key={index}>
                       <td>{item.id}</td>
                       <td>{item.name}</td>
-                      <td>{item.email}</td>
+                      <td>{item.email.toLowerCase()}</td>
                       <td>{item.phone}</td>
                     </tr>
                   ))
