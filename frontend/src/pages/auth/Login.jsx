@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, {useState} from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import Navbar from '../../elements/Navbar'
+import Navbar from '../../elements/navbar'
 
 function Login() {
   const BASEURL = 'http://localhost:5000/api/login'

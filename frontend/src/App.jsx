@@ -1,6 +1,6 @@
 import {Routes, Route} from 'react-router-dom'
 import {Provider} from 'react-redux'
-import Home from './pages/Home'
+import Home from './pages/home'
 import Student from './pages/student/Student'
 import StudentCreate from './pages/student/StudentCreate'
 import StudentEdit from './pages/student/StudentEdit'
@@ -10,8 +10,8 @@ import Edit from './pages/user/Edit'
 import User from './pages/user/User'
 import store from './redux/store'
 import Employe from './pages/employe/Employe'
-import Login from './pages/auth/Login'
-import Register from './pages/auth/Register'
+import Login from './pages/auth/login'
+import Register from './pages/auth/register'
 import Dashboard from './pages/dashboard/Dashboard'
 
 function App() {

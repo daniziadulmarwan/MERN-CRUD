@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import jwtDecode from 'jwt-decode'
-import AuthNavbar from '../../elements/AuthNavbar'
 import axios from 'axios'
+import AuthNavbar from '../../elements/AuthNavbar'
 
 function Dashboard() {
   const BASEURL = 'http://localhost:5000/api'

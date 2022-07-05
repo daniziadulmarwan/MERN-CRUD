@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import {useDispatch} from 'react-redux'
-import Navbar from '../../elements/Navbar'
+import Navbar from '../../elements/navbar'
 
 function Register() {
   const BASEURL = 'http://localhost:5000/api'

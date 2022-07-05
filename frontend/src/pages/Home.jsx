@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Navbar from '../elements/Navbar'
+import Navbar from '../elements/navbar'
 
 function Home() {
-  const {HomeReducer, UserReducer} = useSelector(state => state)
+  const {HomeReducer} = useSelector(state => state)
   const dispatch = useDispatch()
 
   useEffect(() => {
