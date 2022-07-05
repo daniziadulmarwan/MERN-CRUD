@@ -10,6 +10,7 @@ class TeacherController {
     let result = [];
     if (lastId < 1) {
       const results = await db.Teacher.findAll({
+        attributes: ["id", "name", "email", "phone"],
         where: {
           [Op.or]: [
             {

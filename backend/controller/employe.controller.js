@@ -29,6 +29,7 @@ class EmployeController {
     const totalPage = Math.ceil(totalRows / limit);
 
     const result = await db.Employe.findAll({
+      attributes: ["id", "name", "email", "phone"],
       where: {
         [Op.or]: [
           {
