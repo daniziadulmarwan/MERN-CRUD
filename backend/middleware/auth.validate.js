@@ -41,4 +41,33 @@ module.exports = {
       next();
     },
   ],
+
+  loginValidation: [
+    body("email")
+      .notEmpty()
+      .withMessage("Email harus diisi")
+      .isEmail()
+      .withMessage("Email harus berupa email")
+      .custom(async (value, { req }) => {
+        const user = await db.User.findOne({
+          where: { email: value },
+        });
+        if (user) {
+          return Promise.reject("Email sudah terdaftar");
+        }
+        return true;
+      }),
+    body("password").notEmpty().withMessage("Password harus diisi"),
+    (req, res, next) => {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(422).json({
+          message: "Error",
+          error: errors.array(),
+        });
+      }
+
+      next();
+    },
+  ],
 };
