@@ -11,6 +11,8 @@ const datas = [
   {id:3,title:'Title Three', body: 'Body Three', footer: 'Footer Three', date: date.getFullYear()},
 ]
 
+const envi = import.meta.env.VITE_NAME
+
 function Home() {
   const {HomeReducer} = useSelector(state => state)
   const dispatch = useDispatch()
@@ -38,6 +40,8 @@ function Home() {
           }
         </div>
       </div>
+
+      <p>{envi}</p>
     </>
   )
 }
