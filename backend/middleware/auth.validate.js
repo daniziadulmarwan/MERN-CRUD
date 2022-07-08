@@ -52,8 +52,8 @@ module.exports = {
         const user = await db.User.findOne({
           where: { email: value },
         });
-        if (user) {
-          return Promise.reject("Email sudah terdaftar");
+        if (!user) {
+          return Promise.reject("Email belum terdaftar");
         }
         return true;
       }),
