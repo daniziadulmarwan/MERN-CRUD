@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 import axios from '../configs/axios'
 import Navbar from "../elements/navbar"
 
@@ -8,14 +9,17 @@ export default function SignIn() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
+  const navigate = useNavigate()
+
   const formData = new FormData()
   formData.append('email', email)
   formData.append('password', password)
 
   const signin = async (e: { preventDefault: () => void }) => {
     e.preventDefault()
-    const res = await axios.post('/login', {email,password})
-    console.log(res)
+    // const res = await axios.post('/login', {email,password})
+    localStorage.setItem('user', email)
+    navigate('/user')
   }
 
   return (
