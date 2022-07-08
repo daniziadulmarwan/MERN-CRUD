@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import axios from '../configs/axios'
-import Navbar from "../elements/navbar"
+import Navbar from "../components/organisems/navbar"
 
 export default function SignIn() {
   // const selector:any = useSelector(state => state)
