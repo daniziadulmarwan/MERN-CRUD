@@ -1,23 +1,11 @@
-import React, {useState, useEffect} from 'react'
+import { useSelector } from "react-redux"
 
-type Data = {
-  name: string,
-  age: number,
-}
-
-export default function SignIn(props:Data) {
-  const [name, setName] = useState(props.name)
-
-  useEffect(() => {
-    setTimeout(() => {
-      setName('Marwan');
-    }, 3000);
-  }, []);
+export default function SignIn() {
+  const selector:any = useSelector(state => state)
 
   return (
     <div>
-      <p>{`My name is ${props.name}, i am ${props.age} year old`}</p>
-      <p>{name}</p>
+      <h3>Hello {selector.AlertReducer.name}</h3>
     </div>
   )
 }

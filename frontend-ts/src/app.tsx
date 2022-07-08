@@ -1,10 +1,12 @@
-import SignIn from './pages/sign-in'
+import { Provider } from 'react-redux'
+import store from './configs/redux'
+import Router from './router'
 
 function App() {
   return (
-    <>
-      <SignIn name='Dani' age={31} />
-    </>
+    <Provider store={store}>
+      <Router />
+    </Provider>
   )
 }
 
