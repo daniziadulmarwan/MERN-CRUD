@@ -1,9 +1,5 @@
 const route = require("express").Router();
 const userController = require("../controller/user.controller");
-const {
-  userValidate,
-  userParamsValidate,
-} = require("../middleware/user.validate");
 
 route.get("/user", userController.index);
 route.post("/user", userValidate, userController.store);
